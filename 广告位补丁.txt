@@ -1,0 +1,2 @@
+后台-内容-广告位置-手机端首页Banner广告位把广告位的模板替换为：
+{foreach from=$ads item=ad}<div class="swiper-slide">{$ad}</div>{/foreach}
