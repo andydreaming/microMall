@@ -34,7 +34,7 @@
     <input type="text" class="index-search-input" placeholder="商品搜索" onclick="openSearch();">
     <a href="javascript:void(0)" id="translateVoice" style="display:None;"><i class="index-search-sound iconfont fr">&#xe623;</i></a>
   </div>
-  <a href="javascript:openSearch()"><i class="index-header-right iconfont fr">&#xe603;</i></a>
+  <a href="javascript:scan()"><i class="index-header-right iconfont fr">&#xe603;</i></a>
 </header>
 </div>
 

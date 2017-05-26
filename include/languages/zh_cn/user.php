@@ -14,15 +14,15 @@ $_LANG['shot_message'] = "短消息";
 /* 用户菜单 */
 $_LANG['label_welcome'] = '欢迎页';
 $_LANG['label_profile'] = '用户信息';
-$_LANG['label_order'] = '我的订单';
+$_LANG['label_order'] = "我的订单";
 $_LANG['label_address'] = '收货地址';
-$_LANG['label_message'] = '我的留言';
-$_LANG['label_tag'] = '我的标签';
-$_LANG['label_collection'] = '我的收藏';
-$_LANG['label_bonus'] = '我的红包';
-$_LANG['label_comment'] = '我的评论';
-$_LANG['label_affiliate'] = '我的推荐';
-$_LANG['label_group_buy'] = '我的团购';
+$_LANG['label_message'] = "我的留言";
+$_LANG['label_tag'] = "我的标签";
+$_LANG['label_collection'] = "我的收藏";
+$_LANG['label_bonus'] = "优惠券";
+$_LANG['label_comment'] = "我的评论";
+$_LANG['label_affiliate'] = "我的推荐";
+$_LANG['label_group_buy'] = "我的团购";
 $_LANG['label_booking'] = '缺货登记';
 $_LANG['label_user_surplus'] = '资金管理';
 $_LANG['label_track_packages'] = '跟踪包裹';
@@ -120,7 +120,7 @@ $_LANG['add_bonus_sucess'] = '添加新的红包操作成功！';
 $_LANG['add_bonus_false'] = '添加新的红包操作失败！';
 
 $_LANG['not_login'] = '用户未登录。无法完成操作';
-$_LANG['profile_lnk'] = '查看我的个人资料';
+$_LANG['profile_lnk'] = "查看我的个人资料";
 $_LANG['edit_email_failed'] = '编辑电子邮件地址失败！';
 $_LANG['edit_profile_success'] = '您的个人资料已经成功修改！';
 $_LANG['edit_profile_failed'] = '修改个人资料操作失败！';
@@ -246,7 +246,7 @@ $_LANG['bonus_add_expire'] = '该红包已经过期！';
 $_LANG['bonus_use_expire'] = '该红包已经过了使用期！';
 
 /* 会员订单 */
-$_LANG['order_list_lnk'] = '我的订单列表';
+$_LANG['order_list_lnk'] = "我的订单列表";
 $_LANG['order_number'] = '订单编号';
 $_LANG['order_addtime'] = '下单时间';
 $_LANG['order_money'] = '订单总金额';
@@ -394,7 +394,7 @@ $_LANG['msg_email_format'] = '邮件地址不合法';
 
 $_LANG['login_success'] = '登录成功';
 $_LANG['confirm_login'] = '确认登录';
-$_LANG['profile_lnk'] = '查看我的个人信息';
+$_LANG['profile_lnk'] = "查看我的个人信息";
 $_LANG['login_failure'] = '用户名或密码错误';
 $_LANG['relogin_lnk'] = '重新登录';
 
@@ -666,7 +666,7 @@ $_LANG['add_bonus'] = '添加红包';
 /* 密码找回问题 */
 $_LANG['passwd_questions']['friend_birthday'] = '我最好朋友的生日？';
 $_LANG['passwd_questions']['old_address']     = '我儿时居住地的地址？';
-$_LANG['passwd_questions']['motto']           = '我的座右铭是？';
+$_LANG['passwd_questions']['motto'] = "我的座右铭是？";
 $_LANG['passwd_questions']['favorite_movie']  = '我最喜爱的电影？';
 $_LANG['passwd_questions']['favorite_song']   = '我最喜爱的歌曲？';
 $_LANG['passwd_questions']['favorite_food']   = '我最喜爱的食物？';

@@ -22,11 +22,11 @@ $modules['01_menu_system']['03_shipping_list']           = 'shipping.php?act=lis
 $modules['01_menu_system']['05_area_list']               = 'area_manage.php?act=list';
 $modules['01_menu_system']['admin_logs']             = 'admin_logs.php?act=list';
 $modules['01_menu_system']['admin_list']             = 'privilege.php?act=list';
-//$modules['01_menu_system']['admin_role']             = 'role.php?act=list';
-//$modules['01_menu_system']['agency_list']            = 'agency.php?act=list';
+$modules['01_menu_system']['admin_role']             = 'role.php?act=list';
+$modules['01_menu_system']['agency_list']            = 'agency.php?act=list';
 //$modules['01_menu_system']['suppliers_list']         = 'suppliers.php?act=list';
 //$modules['01_menu_system']['shop_authorized']             = 'license.php?act=list_edit';
-$modules['01_menu_system']['shop_authorized']             = '../index.php?m=admin&a=license';
+//$modules['01_menu_system']['shop_authorized']             = '../index.php?m=admin&a=license';
 
 // 商品
 $modules['02_menu_goods']['01_goods_list']       = 'goods.php?act=list'; // 商品列表
@@ -109,10 +109,10 @@ $modules['07_menu_stats']['report_users']                = 'users_order.php?act=
 
 // 模板
 $modules['08_menu_template']['02_template_select']       = 'template.php?act=list';
-// $modules['08_menu_template']['03_template_setup']        = 'template.php?act=setup';
-// $modules['08_menu_template']['04_template_library']      = 'template.php?act=library';
+$modules['08_menu_template']['03_template_setup']        = 'template.php?act=setup';
+$modules['08_menu_template']['04_template_library']      = 'template.php?act=library';
 $modules['08_menu_template']['05_edit_languages']        = 'edit_languages.php?act=list';
-// $modules['08_menu_template']['06_template_backup']       = 'template.php?act=backup_setting';
+$modules['08_menu_template']['06_template_backup']       = 'template.php?act=backup_setting';
 $modules['08_menu_template']['mail_template_manage']     = 'mail_template.php?act=list';
 
 // 数据库

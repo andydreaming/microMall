@@ -78,7 +78,7 @@
 					</li>
 					<a href="<?php echo url('user/bonus');?>">
 					<li class="fl"><span><?php if ($this->_var['list']['bonus'] != ''): ?> <?php echo $this->_var['list']['bonus']; ?><?php else: ?>0<?php endif; ?></span>
-						<p>红包</p>
+						<p>优惠券</p>
 					</li>
 					</a>
 					<li class="fl"><span><?php if ($this->_var['list']['user_points'] != ''): ?> <?php echo $this->_var['list']['user_points']; ?><?php else: ?>0<?php endif; ?></span>

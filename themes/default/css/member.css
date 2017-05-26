@@ -3549,7 +3549,8 @@ html.active {
   height: 4rem;
   bottom: 0;
   z-index: 4;
-  background-color: #383838; }
+  background-color: #ffffff; 
+    box-shadow: 1px 5px 15px rgba(50,50,50,0.3);}
   .member-footer ul li {
     width: 20%;
     text-align: center;
@@ -3560,10 +3561,34 @@ html.active {
       display: block;
       font-size: 1.25rem;
       padding-top: 0.35rem; }
+    	.member-footer ul li div{
+	    background-image: url('../images/footer-menu.png');
+    background-size: auto 4.13rem;
+    height: 2.06rem;
+    width: 1.87rem;
+    display: inline-block;
+    margin-bottom: -0.33rem;
+    	}
+    	.member-footer ul li .m-home{
+	background-position: 0 0.2rem;
+    	}
+.member-footer ul li .m-type{
+	background-position: -2.06rem 0.2rem;
+    	}
+.member-footer ul li .m-search{
+	background-position: -10.33rem 0.2rem;
+    	}
+.member-footer ul li .m-car{
+	background-position: -4.2rem 0.2rem;
+    	}
+.member-footer ul li .m-user{
+	background-position: -6.2rem -6.13rem;
+	color:#ec5151;
+    	}
     .member-footer ul li span {
-      font-size: 1.2rem; }
+      font-size: 0.9rem; }
     .member-footer ul li a {
-      color: #D4D4D4; }
+      color: #7777777; }
 
 .login-html {
   height: 100%;

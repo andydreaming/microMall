@@ -3420,7 +3420,8 @@ h3 {
   height: 4rem;
   bottom: 0;
   z-index: 4;
-  background-color: #383838; }
+  background-color: #fff;
+box-shadow: 1px 5px 15px rgba(50,50,50,0.3); }
   .index-footer ul {
     overflow: hidden; }
 
@@ -3433,9 +3434,32 @@ h3 {
     color: #D7D7D7;
     display: block;
     line-height: 1.6rem; }
+.index-footer-list div {
+    background-image: url('../images/footer-menu.png');
+    background-size: auto 4.13rem;
+    height: 2.06rem;
+    width: 1.87rem;
+    display: inline-block;
+margin-bottom:-0.33rem;}
+	.index-footer-list .m-home{
+    	background-position: 0 2.13rem;
+		color:#ec5151;		
+	}
+.index-footer-list .m-type{
+    	background-position: -2.06rem 0.2rem;		
+	}
+.index-footer-list .m-search{
+    	background-position: -10.33rem 0.2rem;		
+	}	
+.index-footer-list .m-car{
+    	background-position: -4.2rem 0.2rem;		
+	}	
+.index-footer-list .m-user{
+    	background-position: -6.13rem 0.2rem;		
+	}	
   .index-footer-list span {
     font-size: 0.9rem;
-    color: #D7D7D7; }
+    color: #777777; }
 
 body, .index-header, .index-footer {
   -webkit-transition: all 0.3s ease;

@@ -466,7 +466,7 @@ $_LANG['passwd_answer'] = '问题答案';
 $_LANG['passwd_balnk'] = '密码中不能包含空格';
 
 /* 用户中心默认页面 */
-$_LANG['user_center'] = '个人中心';
+$_LANG['user_center'] = '会员';
 $_LANG['welcome_to'] = '欢迎您回到';
 $_LANG['last_time'] = '您的上一次登录时间';
 $_LANG['your_account'] = '您的账户';

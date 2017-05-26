@@ -9,7 +9,7 @@ $_LANG['no_data'] = '暂无数据';
 $_LANG['sys_msg'] = '系统提示';
 $_LANG['catalog'] = '目录';
 $_LANG['please_view_order_detail'] = '商品已发货，详情请到用户中心订单详情查看';
-$_LANG['user_center'] = '用户中心';
+$_LANG['user_center'] = '会员';
 $_LANG['shop_closed'] = '本店盘点中，请您稍后再来...';
 $_LANG['shop_register_closed'] = '该网店暂停注册';
 $_LANG['shop_upgrade'] = "本店升级中，管理员从 <a href=\"admin/\">管理中心</a> 登录后，系统会自动完成升级";
@@ -981,7 +981,7 @@ $_LANG['change_payment'] = '或更换支付方式';
 $_LANG['order_amount'] = '您的应付款金额为';
 $_LANG['remember_order_number'] = '感谢您在本店购物！您的订单已提交成功，请记住您的订单号';
 $_LANG['back_home'] = '<a href="'.url('index/index').'">返回首页</a>';
-$_LANG['goto_user_center'] = '<a href="'.url('user/index').'">用户中心</a>';
+$_LANG['goto_user_center'] = '<a href="'.url('user/index').'">会员</a>';
 $_LANG['order_submit_back'] = '您可以 %s 或去 %s';
 
 $_LANG['order_placed_sms'] = '您有新订单，收货人：%s 电话：%s';

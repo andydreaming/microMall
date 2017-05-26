@@ -18,7 +18,7 @@ $_LANG['payment_name'] = '支付方式名称';
 $_LANG['version'] = '插件版本';
 $_LANG['payment_desc'] = '支付方式描述';
 $_LANG['short_pay_fee'] = '费用';
-$_LANG['payment_author'] = '插件作者';
+//$_LANG['payment_author'] = '插件作者';
 $_LANG['payment_is_cod'] = '货到付款？';
 $_LANG['payment_is_online'] = '在线支付？';
 

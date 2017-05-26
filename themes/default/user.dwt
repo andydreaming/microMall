@@ -77,7 +77,7 @@
 					</li>
 					<a href="{:url('user/bonus')}">
 					<li class="fl"><span><!--{if $list.bonus neq ''}--> {$list.bonus}<!--{else}-->0<!--{/if}--></span>
-						<p>红包</p>
+						<p>优惠券</p>
 					</li>
 					</a>
 					<li class="fl"><span><!--{if $list.user_points neq ''}--> {$list.user_points}<!--{else}-->0<!--{/if}--></span>
