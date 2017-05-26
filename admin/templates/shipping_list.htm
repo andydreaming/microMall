@@ -10,7 +10,6 @@
     <th nowrap="true">{$lang.insure}</th>
     <th nowrap="true">{$lang.support_cod}</th>
     <th nowrap="true">{$lang.shipping_version}</th>
-    <th>{$lang.shipping_author}</th>
     <th>{$lang.sort_order}</th>
     <th>{$lang.handler}</th>
   </tr>
@@ -39,7 +38,6 @@
     </td>
     <td align='center'>{if $module.cod==1}{$lang.yes}{else}{$lang.no}{/if}</td>
     <td nowrap="true">{$module.version}</td>
-    <td nowrap="true"><a href="{$module.website}" target="_blank">{$module.author}</a></td>
     <td align="right" valign="top"> {if $module.install == 1} <span onclick="listTable.edit(this, 'edit_order', '{$module.code}'); return false;">{$module.shipping_order}</span> {else} &nbsp; {/if} </td>
     <td align="center" nowrap="true">
       {if $module.install == 1}

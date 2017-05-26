@@ -8,7 +8,6 @@
     <th>{$lang.payment_name}</th>
     <th width="40%">{$lang.payment_desc}</th>
     <th>{$lang.version}</th>
-    <th>{$lang.payment_author}</th>
     <th>{$lang.short_pay_fee}</th>
     <th>{$lang.sort_order}</th>
     <th>{$lang.handler}</th>
@@ -25,7 +24,6 @@
     </td>
     <td>{$module.desc|nl2br}</td>
     <td valign="top" align="center">{$module.version}</td>
-    <td valign="top" align="center"><a href="{$module.website}">{$module.author}</a></td>
     <td valign="top" align="right">
       {if $module.is_cod}{$lang.decide_by_ship}
       {else}
