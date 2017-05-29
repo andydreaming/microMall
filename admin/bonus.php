@@ -221,7 +221,7 @@ if ($_REQUEST['act'] == 'insert')
     $use_enddate    = local_strtotime($_POST['use_end_date']);
 
     /* 插入数据库。 */
-    $sql = "INSERT INTO ".$ecs->table('bonus_type')." (type_name, type_money,send_start_date,send_end_date,use_start_date,use_end_date,send_type,min_amount,min_goods_amount)
+    $sql = "INSERT INTO ".$ecs->table('bonus_type')." (type_name, type_money,send_start_date,send_end_date,use_start_date,use_end_date,send_type,min_amount,min_goods_amount,qr_type)
     VALUES ('$type_name',
             '$_POST[type_money]',
             '$send_startdate',
@@ -229,7 +229,10 @@ if ($_REQUEST['act'] == 'insert')
             '$use_startdate',
             '$use_enddate',
             '$_POST[send_type]',
-            '$min_amount','" . floatval($_POST['min_goods_amount']) . "')";
+            '$min_amount',
+            '" . floatval($_POST['min_goods_amount']) . "',
+            '$_POST[qr_type]'
+               )";
 
     $db->query($sql);
     /* 记录管理员操作 */
@@ -563,17 +566,54 @@ if ($_REQUEST['act'] == 'send_by_print')
     @set_time_limit(0);
 
     /* 红下红包的类型ID和生成的数量的处理 */
-    $bonus_typeid = !empty($_POST['bonus_type_id']) ? $_POST['bonus_type_id'] : 0;
+    $bonus_typeid = !empty($_POST['bonus_type_id']) ? $_POST['bonus_type_id'] : 3;
     $bonus_sum    = !empty($_POST['bonus_sum'])     ? $_POST['bonus_sum']     : 1;
+    $bonus_qr_type = !empty($_POST['qr_type'])     ? $_POST['qr_type']     : 1;
 
     /* 生成红包序列号 */
     $num = $db->getOne("SELECT MAX(bonus_sn) FROM ". $ecs->table('user_bonus'));
     $num = $num ? floor($num / 10000) : 100000;
+    
+    // 默认公众号信息
+    $sql = "select id, token, appid, appsecret, oauth_redirecturi, type, oauth_status from" .$ecs->table('wechat'). " where default_wx = 1 and status = 1";
+    $wxinfo = $db->GetRow($sql);
+    
+    if (! empty($wxinfo) && $wxinfo['type'] == 2) {
+        $config['token'] = $wxinfo['token'];
+        $config['appid'] = $wxinfo['appid'];
+        $config['appsecret'] = $wxinfo['appsecret'];
+        // 微信通验证
+        $weObj = new Wechat($config);
+    }
+    
+    $bonus_qr_url = '';
+    //有密码
+    if ($bonus_qr_type = 1) {
+        $ticket = $weObj->getQRCode($bonus_typeid, 0, 259200);
+        if (empty($ticket)) {
+            //$weObj->errCode, $weObj->errMsg
+            return false;
+        }
+        $data['ticket'] = $ticket['ticket'];
+        // 二维码地址
+       $bonus_qr_url = $weObj->getQRUrl($ticket['ticket']);
+    }
 
     for ($i = 0, $j = 0; $i < $bonus_sum; $i++)
     {
         $bonus_sn = ($num + $i) . str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
-        $db->query("INSERT INTO ".$ecs->table('user_bonus')." (bonus_type_id, bonus_sn) VALUES('$bonus_typeid', '$bonus_sn')");
+        
+        if ($bonus_qr_type = 0) {
+            $ticket = $weObj->getQRCode($bonus_sn, 0, 259200);
+            if (empty($ticket)) {
+                //$weObj->errCode, $weObj->errMsg
+                return false;
+            }
+            $data['ticket'] = $ticket['ticket'];
+            // 二维码地址
+            $bonus_qr_url = $weObj->getQRUrl($ticket['ticket']);
+        }
+        $db->query("INSERT INTO ".$ecs->table('user_bonus')." (bonus_type_id, bonus_sn,qr_url) VALUES('$bonus_typeid', '$bonus_sn','$bonus_qr_url')");
 
         $j++;
     }
@@ -600,10 +640,10 @@ if ($_REQUEST['act'] == 'gen_excel')
 
     /* 获得此线下红包类型的ID */
     $tid  = !empty($_GET['tid']) ? intval($_GET['tid']) : 0;
-    $type_name = $db->getOne("SELECT type_name FROM ".$ecs->table('bonus_type')." WHERE type_id = '$tid'");
+    $bonus_type = $db->getRow("SELECT * FROM ".$ecs->table('bonus_type')." WHERE type_id = '$tid'");
 
     /* 文件名称 */
-    $bonus_filename = $type_name .'_bonus_list';
+    $bonus_filename = $bonus_type['type_name'].'_'.$_LANG['qr_type'][$bonus_type['qr_type']].'_bonus_list';
     if (CHARSET != 'gbk')
     {
         $bonus_filename = ecs_iconv('UTF8', 'GB2312',$bonus_filename);
@@ -620,7 +660,8 @@ if ($_REQUEST['act'] == 'gen_excel')
         echo ecs_iconv('UTF8', 'GB2312', $_LANG['bonus_sn']) ."\t";
         echo ecs_iconv('UTF8', 'GB2312', $_LANG['type_money']) ."\t";
         echo ecs_iconv('UTF8', 'GB2312', $_LANG['type_name']) ."\t";
-        echo ecs_iconv('UTF8', 'GB2312', $_LANG['use_enddate']) ."\t\n";
+        echo ecs_iconv('UTF8', 'GB2312', $_LANG['use_enddate']) ."\t";
+        echo ecs_iconv('UTF8', 'GB2312', $_LANG['qr_url']) ."\t\n";
     }
     else
     {
@@ -629,11 +670,12 @@ if ($_REQUEST['act'] == 'gen_excel')
         echo $_LANG['bonus_sn'] ."\t";
         echo $_LANG['type_money'] ."\t";
         echo $_LANG['type_name'] ."\t";
-        echo $_LANG['use_enddate'] ."\t\n";
+        echo $_LANG['use_enddate'] ."\t";
+        echo $_LANG['qr_url'] ."\t\n";
     }
 
     $val = array();
-    $sql = "SELECT ub.bonus_id, ub.bonus_type_id, ub.bonus_sn, bt.type_name, bt.type_money, bt.use_end_date ".
+    $sql = "SELECT ub.bonus_id, ub.bonus_type_id, ub.bonus_sn, ub.qr_url, bt.type_name, bt.type_money, bt.use_end_date ".
            "FROM ".$ecs->table('user_bonus')." AS ub, ".$ecs->table('bonus_type')." AS bt ".
            "WHERE bt.type_id = ub.bonus_type_id AND ub.bonus_type_id = '$tid' ORDER BY ub.bonus_id DESC";
     $res = $db->query($sql);
@@ -655,7 +697,8 @@ if ($_REQUEST['act'] == 'gen_excel')
             }
         }
         echo $code_table[$val['type_name']] . "\t";
-        echo local_date('Y-m-d', $val['use_end_date']);
+        echo local_date('Y-m-d', $val['use_end_date']). "\t";
+        echo $val['qr_url'] . "\t";
         echo "\t\n";
     }
 }
@@ -955,7 +998,7 @@ function get_type_list()
 
     while ($row = $GLOBALS['db']->fetchRow($res))
     {
-        $row['send_by'] = $GLOBALS['_LANG']['send_by'][$row['send_type']];
+        $row['qr_type'] = $GLOBALS['_LANG']['qr_type'][$row['qr_type']];
         $row['send_count'] = isset($sent_arr[$row['type_id']]) ? $sent_arr[$row['type_id']] : 0;
         $row['use_count'] = isset($used_arr[$row['type_id']]) ? $used_arr[$row['type_id']] : 0;
 

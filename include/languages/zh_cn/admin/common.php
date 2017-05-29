@@ -4,8 +4,8 @@
  * 管理中心共用语言文件
 */
 
-$_LANG['app_name'] = 'ECTouch';
-$_LANG['cp_home'] = 'ECTouch管理中心';
+$_LANG['app_name'] = 'emall';
+$_LANG['cp_home'] = '尤溪红管理中心';
 $_LANG['copyright'] = '';
 $_LANG['query_info'] = '共执行 %d 个查询，用时 %s 秒';
 $_LANG['memory_info'] = '，内存占用 %0.3f MB';
@@ -351,7 +351,7 @@ $_LANG['04_menu_members'] = '会员';
 $_LANG['05_menu_content'] = '内容';
 $_LANG['06_menu_promotion'] = '营销';
 $_LANG['07_menu_stats'] = '报表';
-//$_LANG['08_menu_template'] = '模板';
+$_LANG['08_menu_template'] = '模板';
 $_LANG['09_menu_backup'] = '数据库';
 $_LANG['10_menu_tools'] = '工具箱';
 $_LANG['11_menu_rec'] = '微分销';

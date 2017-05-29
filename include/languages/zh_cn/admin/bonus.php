@@ -30,6 +30,8 @@ $_LANG['send_count'] = '发放数量';
 $_LANG['use_count'] = '使用数量';
 $_LANG['send_method'] = '如何发放此类型红包';
 $_LANG['send_type'] = '发放类型';
+$_LANG['qr_method'] = '二维码生成方式';
+$_LANG['qr_url'] = '二维码地址';
 $_LANG['param'] = '参数';
 $_LANG['no_use'] = '未使用';
 $_LANG['yuan'] = '元';
@@ -44,6 +46,10 @@ $_LANG['send_by'][SEND_BY_USER] = '按用户发放';
 $_LANG['send_by'][SEND_BY_GOODS] = '按商品发放';
 $_LANG['send_by'][SEND_BY_ORDER] = '按订单金额发放';
 $_LANG['send_by'][SEND_BY_PRINT] = '线下发放的红包';
+
+$_LANG['qr_type'][PASSWORD_NO] = '无密码';
+$_LANG['qr_type'][PASSWORD_YES] = '有密码';
+
 $_LANG['report_form'] = '报表';
 $_LANG['send'] = '发放';
 $_LANG['bonus_excel_file'] = '线下红包信息列表';

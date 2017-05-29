@@ -11,7 +11,7 @@
   <table cellpadding="3" cellspacing="1">
     <tr>
       <th><a href="javascript:listTable.sort('type_name'); ">{$lang.type_name}</a>{$sort_type_name}</th>
-      <th><a href="javascript:listTable.sort('send_type'); ">{$lang.send_type}</a>{$sort_send_type}</th>
+      <th>{$lang.qr_method}</th>
       <th><a href="javascript:listTable.sort('type_money'); ">{$lang.type_money}</a>{$sort_type_money}</th>
       <th><a href="javascript:listTable.sort('min_amount'); ">{$lang.min_amount}</a>{$sort_min_amount}</th>
       <th>{$lang.send_count}</th>
@@ -21,7 +21,7 @@
     {foreach from=$type_list item=type}
     <tr>
       <td class="first-cell"><span onclick="listTable.edit(this, 'edit_type_name', {$type.type_id})">{$type.type_name|escape:html}</span></td>
-      <td>{$type.send_by}</td>
+      <td>{$type.qr_type}</td>
       <td align="right"><span onclick="listTable.edit(this, 'edit_type_money', {$type.type_id})">{$type.type_money}</span></td>
       <td align="right"><span onclick="listTable.edit(this, 'edit_min_amount', {$type.type_id})">{$type.min_amount}</span></td>
       <td align="right"><span>{$type.send_count}</span></td>

@@ -25,13 +25,13 @@
     <td><input name="min_goods_amount" type="text" id="min_goods_amount" value="{$bonus_arr.min_goods_amount}" size="20" />
     <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="NoticeMinGoodsAmount">{$lang.notice_min_goods_amount}</span> </td>
   </tr>
+  <input type="hidden" name="send_type" value="3"/>
   <tr>
-    <td class="label">{$lang.send_method}</td>
+    <td class="label">{$lang.qr_method}</td>
     <td>
-      <input type="radio" name="send_type" value="0" {if $bonus_arr.send_type eq 0} checked="true" {/if} onClick="showunit(0)"  />{$lang.send_by[0]}
-      <input type="radio" name="send_type" value="1" {if $bonus_arr.send_type eq 1} checked="true" {/if} onClick="showunit(1)"  />{$lang.send_by[1]}
-      <input type="radio" name="send_type" value="2" {if $bonus_arr.send_type eq 2} checked="true" {/if} onClick="showunit(2)"  />{$lang.send_by[2]}
-      <input type="radio" name="send_type" value="3" {if $bonus_arr.send_type eq 3} checked="true" {/if} onClick="showunit(3)"  />{$lang.send_by[3]}    </td>
+      <input type="radio" name="qr_type" value="0" {if $bonus_arr.qr_type eq 0} checked="true" {/if} onClick="showunit(0)"  />{$lang.qr_type[0]}
+      <input type="radio" name="qr_type" value="1" {if $bonus_arr.qr_type eq 1} checked="true" {/if} onClick="showunit(1)"  />{$lang.qr_type[1]}
+     </td>
   </tr>
   <tr id="1" style="display:none">
     <td class="label">

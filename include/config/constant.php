@@ -105,6 +105,10 @@ define('SEND_BY_GOODS', 1); // 按商品发放
 define('SEND_BY_ORDER', 2); // 按订单发放
 define('SEND_BY_PRINT', 3); // 线下发放
 
+/* 二维码方式 */
+define('PASSWORD_NO', 0); // 无密码
+define('PASSWORD_YES', 1); // 有密码
+
 /* 广告的类型 */
 define('IMG_AD', 0); // 图片广告
 define('FALSH_AD', 1); // flash广告
