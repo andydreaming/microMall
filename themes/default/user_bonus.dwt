@@ -1,13 +1,15 @@
 <!-- #BeginLibraryItem "/library/user_header.lbi" --><!-- #EndLibraryItem -->
 <div class="user-account-detail user-bonus">
+<div class="top"><div class="top-money-name">余额</div><div class="top-money"><span>￥</span>0.55</div><div class="top-time">有效期：2017.06.21</div></div>
+<div class="bar"><div  class="bar-left">面值</div><div class="bar-right">领用记录</div></div>
    <!-- {if $bonus} -->
   <ul>
 	<!--{foreach from=$bonus item=item}-->
     <li>
-		<p class="title">{$lang.bonus_sn}：{$item.bonus_sn|default:N/A}<span class="pull-right">{$item.status}</span></p>
+		<!-- <p class="title">{$lang.bonus_sn}：{$item.bonus_sn|default:N/A}<span class="pull-right">{$item.status}</span></p> -->
 		
-		<p class="content"><span class="remark pull-left">{$lang.bonus_amount}：{$item.type_money}</span> <span class="pull-right text-right type">{$lang.bonus_name}：{$item.type_name}</span></p>
-		<p class="content"><span class="remark pull-left">{$lang.min_goods_amount}：{$item.min_goods_amount}</span> <span class="pull-right text-right type">{$lang.bonus_end_date}：{$item.use_enddate}</span></p>
+		<!-- <p class="content"><span class="remark pull-left">{$lang.bonus_amount}：{$item.type_money}</span> <span class="pull-right text-right type">{$lang.bonus_name}：{$item.type_name}</span></p> -->
+		<p class="content"><span class="remark pull-left">{$item.type_money}</span> <span class="pull-right text-right type">{$item.use_enddate}</span></p>
 	</li>
     <!--{/foreach}-->
   </ul>

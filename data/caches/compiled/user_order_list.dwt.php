@@ -35,8 +35,8 @@ if ($this->_foreach['orders_list']['total'] > 0):
 </div>
 <?php echo $this->fetch('library/search.lbi'); ?>
 <?php echo $this->fetch('library/page_footer.lbi'); ?>
-<footer class="logo"><a href="http://www.ectouch.cn" title="ECTouch官网" 
-target="_blank"><img src="__TPL__/images/copyright.png" width="176" height="60"></a></footer>
+<footer class="logo"><a href="" title="" 
+target="_blank"><img src="" width="176" height="60"></a></footer>
 <script type="text/javascript">
 <?php $_from = $this->_var['lang']['merge_order_js']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
     foreach ($_from AS $this->_var['key'] => $this->_var['item']):

@@ -31,10 +31,10 @@
           <form name="selectPageForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
             <?php if ($this->_var['pager']['styleid'] == 0): ?>
             <div id="pager" style="padding:1em 0" class="text-right"> <?php echo $this->_var['lang']['pager_1']; ?><?php echo $this->_var['pager']['record_count']; ?><?php echo $this->_var['lang']['pager_2']; ?><?php echo $this->_var['lang']['pager_3']; ?><?php echo $this->_var['pager']['page_count']; ?><?php echo $this->_var['lang']['pager_4']; ?> <span> <a href="<?php echo $this->_var['pager']['page_prev']; ?>"><?php echo $this->_var['lang']['page_prev']; ?></a>&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->_var['pager']['page_next']; ?>"><?php echo $this->_var['lang']['page_next']; ?></a> </span> 
-              <?php $_from = $this->_var['pager']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item_0_60196100_1495803720');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['item_0_60196100_1495803720']):
+              <?php $_from = $this->_var['pager']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
 ?>
-              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item_0_60196100_1495803720']; ?>" />
+              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item']; ?>" />
               <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?> 
             </div>
             <?php else: ?> 
@@ -60,10 +60,10 @@
           <form name="selectPageForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
             <?php if ($this->_var['pager_fav']['styleid'] == 0): ?>
             <div id="pager" style="padding:1em 0" class="text-right"> <?php echo $this->_var['lang']['pager_1']; ?><?php echo $this->_var['pager_fav']['record_count']; ?><?php echo $this->_var['lang']['pager_2']; ?><?php echo $this->_var['lang']['pager_3']; ?><?php echo $this->_var['pager_fav']['page_count']; ?><?php echo $this->_var['lang']['pager_4']; ?> <span> <a href="<?php echo $this->_var['pager_fav']['page_prev']; ?>"><?php echo $this->_var['lang']['page_prev']; ?></a>&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->_var['pager_fav']['page_next']; ?>"><?php echo $this->_var['lang']['page_next']; ?></a> </span> 
-              <?php $_from = $this->_var['pager_fav']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item_0_60262000_1495803720');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['item_0_60262000_1495803720']):
+              <?php $_from = $this->_var['pager_fav']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
 ?>
-              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item_0_60262000_1495803720']; ?>" />
+              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item']; ?>" />
               <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?> 
             </div>
             <?php else: ?> 
@@ -89,10 +89,10 @@
           <form name="selectPageForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
             <?php if ($this->_var['pager_med']['styleid'] == 0): ?>
             <div id="pager" style="padding:1em 0" class="text-right"> <?php echo $this->_var['lang']['pager_1']; ?><?php echo $this->_var['pager_med']['record_count']; ?><?php echo $this->_var['lang']['pager_2']; ?><?php echo $this->_var['lang']['pager_3']; ?><?php echo $this->_var['pager_med']['record_count']; ?><?php echo $this->_var['lang']['pager_4']; ?> <span> <a href="<?php echo $this->_var['pager_med']['page_prev']; ?>"><?php echo $this->_var['lang']['page_prev']; ?></a>&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->_var['pager_bad']['page_next']; ?>"><?php echo $this->_var['lang']['page_next']; ?></a> </span> 
-              <?php $_from = $this->_var['pager_med']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item_0_60326300_1495803720');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['item_0_60326300_1495803720']):
+              <?php $_from = $this->_var['pager_med']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
 ?>
-              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item_0_60326300_1495803720']; ?>" />
+              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item']; ?>" />
               <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?> 
             </div>
             <?php else: ?> 
@@ -118,10 +118,10 @@
           <form name="selectPageForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
             <?php if ($this->_var['pager_bad']['styleid'] == 0): ?>
             <div id="pager" style="padding:1em 0" class="text-right"> <?php echo $this->_var['lang']['pager_1']; ?><?php echo $this->_var['pager_bad']['record_count']; ?><?php echo $this->_var['lang']['pager_2']; ?><?php echo $this->_var['lang']['pager_3']; ?><?php echo $this->_var['pager_bad']['record_count']; ?><?php echo $this->_var['lang']['pager_4']; ?> <span> <a href="<?php echo $this->_var['pager_bad']['page_prev']; ?>"><?php echo $this->_var['lang']['page_prev']; ?></a>&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->_var['pager_bad']['page_next']; ?>"><?php echo $this->_var['lang']['page_next']; ?></a> </span> 
-              <?php $_from = $this->_var['pager_bad']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item_0_60381700_1495803720');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['item_0_60381700_1495803720']):
+              <?php $_from = $this->_var['pager_bad']['search']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
 ?>
-              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item_0_60381700_1495803720']; ?>" />
+              <input type="hidden" name="<?php echo $this->_var['key']; ?>" value="<?php echo $this->_var['item']; ?>" />
               <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?> 
             </div>
             <?php else: ?> 
@@ -136,10 +136,10 @@
 </div>
 <script type="text/javascript">
 //<![CDATA[
-<?php $_from = $this->_var['lang']['cmt_lang']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item_0_60389600_1495803720');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['item_0_60389600_1495803720']):
+<?php $_from = $this->_var['lang']['cmt_lang']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
 ?>
-var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item_0_60389600_1495803720']; ?>";
+var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
 <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 
 /**

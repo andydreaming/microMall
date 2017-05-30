@@ -29,9 +29,9 @@
     <!-- tab body -->
     <div id="tabbody-div">
       <form enctype="multipart/form-data" action="" method="post" name="theForm" >
-        <!-- 鏈€澶ф枃浠堕檺鍒 -->
+        <!-- 文件最大限制 -->
         <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
-        <!-- 閫氱敤淇℃伅 -->
+        <!-- 商品通用信息 -->
         <table width="90%" id="general-table" align="center">
           <tr>
             <td class="label">{$lang.lab_goods_name}</td>
@@ -48,6 +48,7 @@
             <td><input type="text" name="goods_sn" value="{$goods.goods_sn|escape}" size="20" onblur="checkGoodsSn(this.value,'{$goods.goods_id}')" /><span id="goods_sn_notice"></span><br />
             <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsSN">{$lang.notice_goods_sn}</span></td>
           </tr>
+          <!-- 商品分类 -->
           <tr>
             <td class="label">{$lang.lab_goods_cat}</td>
             <td><select name="cat_id" onchange="hideCatDiv()" ><option value="0">{$lang.select_please}</option>{$cat_list}</select>
@@ -72,6 +73,7 @@
               {/foreach}
             </td>
           </tr>
+          <!-- 商品品牌 -->
           <tr>
             <td class="label">{$lang.lab_goods_brand}</td>
             <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0">{$lang.select_please}{html_options options=$brand_list selected=$goods.brand_id}</select>
@@ -96,10 +98,14 @@
           </tr>
          {/if}
           <tr>
-            <td class="label">{$lang.lab_shop_price}</td>
+            <td class="label">{$lang.lab_shop_price}1111</td>
             <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
             <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" />
             {$lang.require_field}</td>
+          </tr>
+          <tr>
+            <td class="label">{$lang.lab_shop_price}1111</td>
+            <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
           </tr>
           <!---->
           {if $user_rank_list}

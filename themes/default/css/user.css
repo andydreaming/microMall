@@ -74,6 +74,14 @@
 .user-account-detail ul li p.content span.remark { right: 4em; left: 0; position: absolute; height: 1.6em; overflow: clip; text-overflow: ellipsis; }
 .user-account-detail ul li p.content span.type { display: block; }
 .user-account-detail .count { padding: 0.6em; width: 100%; text-align: right; font-size: 1.2em; }
+.user-account-detail .top{background:#4fcc00;color:#fff;font-size:16px;text-align:center;    padding: 0 10px;}
+.user-account-detail .top-money-name{padding-top:20px;}
+.user-account-detail .top-money{font-size:40px;}
+.user-account-detail .top-money span{font-size:18px;}
+.user-account-detail .top-time{padding-top:40px;padding-bottom:10px;}
+.user-account-detail .bar{display:-webkit-box;    line-height: 45px;padding: 0 10px;border-bottom: 1px solid #e3e3e3;background: #fff;font-weight: bold;}
+.user-account-detail .bar-left{text-align:left; -webkit-box-flex:1;}
+.user-account-detail .bar-right{text-align:right;}
 /*user我的分享*/
 table.u-table { margin-bottom: 0.8em; }
 table.u-table:last-child { margin-bottom: 0; }
