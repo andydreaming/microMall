@@ -249,9 +249,10 @@ $_LANG['bonus_add_success'] = '您已经成功的添加了一个新的红包！'
 $_LANG['bonus_not_exist'] = '你输入的红包不存在';
 $_LANG['user_bonus_empty'] = '您现在还没有红包';
 $_LANG['add_bonus_sucess'] = '添加新的红包操作成功！';
-$_LANG['add_bonus_false'] = '添加新的红包操作失败！';
+$_LANG['add_bonus_false'] = '领取抵用券失败，请稍后重试！';
 $_LANG['bonus_add_expire'] = '该红包已经过期！';
 $_LANG['bonus_use_expire'] = '该红包已经过了使用期！';
+$_LANG['bonus_type_is_used'] = '该抵用券你已经领取过了！';
 
 /* 会员订单 */
 $_LANG['order_list_lnk'] = '全部订单';

@@ -50,7 +50,7 @@ $_LANG['send_by'][SEND_BY_PRINT] = '线下发放的红包';
 $_LANG['qr_type'][PASSWORD_NO] = '无密码';
 $_LANG['qr_type'][PASSWORD_YES] = '有密码';
 
-$_LANG['report_form'] = '报表';
+$_LANG['report_form'] = '导出';
 $_LANG['send'] = '发放';
 $_LANG['bonus_excel_file'] = '线下红包信息列表';
 

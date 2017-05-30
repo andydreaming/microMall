@@ -487,10 +487,22 @@ class UsersModel extends BaseModel {
         $sql = "SELECT bonus_id, bonus_sn, user_id, bonus_type_id FROM " . $this->pre .
                 "user_bonus WHERE bonus_sn = '$bouns_sn'";
         $row = $this->row($sql);
+        
         if ($row) {
+            $bonus_type_id = $row['bonus_type_id'];
+            $bonus_type_sql = "SELECT bonus_id, bonus_sn, user_id, bonus_type_id FROM " . $this->pre .
+            "user_bonus WHERE bonus_type_id = '$bonus_type_id' and user_id='$user_id'";
+            $bonus_type_row = $this->row($bonus_type_sql);
+            
+            if ($bonus_type_row) {
+                //红包已经添加过了。
+                ECTouch::err()->add(L('bonus_type_is_used'));
+                return false;
+            }
+            
             if ($row['user_id'] == 0) {
                 //红包没有被使用
-                $sql = "SELECT send_end_date, use_end_date " .
+                $sql = "SELECT send_end_date, use_end_date, type_money" .
                         " FROM " . $this->pre .
                         "bonus_type WHERE type_id = '" . $row['bonus_type_id'] . "'";
 
@@ -505,6 +517,34 @@ class UsersModel extends BaseModel {
                 $sql = "UPDATE " . $this->pre . "user_bonus SET user_id = '$user_id' " .
                         "WHERE bonus_id = '$row[bonus_id]'";
                 $result = $this->query($sql);
+                
+                if (!$result) {
+                   ECTouch::err()->add(L('add_bonus_false'));
+                    return false;
+                }
+                
+                $sql = "SELECT * FROM " .
+                        $this->pre . 
+                        "user_bonus_balance where user_id = '$user_id' ";
+                $balance_result = $this->query($sql);
+                $bonus_money = $bonus_time['type_money'];
+                if ($bonus_balance) {
+                    //余额记录中有
+                    $user_balance=$balance_result['balance'];
+                    if ($now <= $bonus_balance['expire_date']) {
+                        $user_balance = $user_balance + $bonus_money;
+                    }
+                    $sql = "UPDATE " . $this->pre . "user_bonus_balance SET balance = '$user_balance', expire_date='$now'" .
+                    "WHERE user_id = '$user_id'";
+                    $result = $this->query($sql);
+                }else {
+                   $this->table = "user_bonus_balance";
+                    $balance_data['user_id'] = $user_id;
+                    $balance_data['balance'] = $bonus_money;
+                    $balance_data['expire_date'] = $now;
+                    $result = $this->insert($balance_data);
+                }
+                
                 if ($result) {
                     return true;
                 } else {
