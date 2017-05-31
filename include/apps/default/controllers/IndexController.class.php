@@ -47,6 +47,17 @@ class IndexController extends CommonController {
             $this->assign('brand_list', model('Brand')->get_brands($app = 'brand', C('page_size'), 1));
             // 分类下的文章
             $this->assign('cat_articles', model('Article')->assign_articles(1,5)); // 1 是文章分类id ,5 是文章显示数量
+            
+            $wxinfo   = model('Base')->model->table('wechat')->field('token, appid, appsecret')->find();
+            $appid    = $wxinfo['appid'];
+            $secret   = $wxinfo['appsecret'];
+            //微信JS SDK
+            $jssdk = new Jssdk($appid, $secret);
+            $signPackage = $jssdk->GetSignPackage();
+            $this->assign('appid', $signPackage["appId"]);
+            $this->assign('timestamp', $signPackage["timestamp"]);
+            $this->assign('noncestr', $signPackage["nonceStr"]);
+            $this->assign('signature', $signPackage["signature"]);
         }
         $this->display('index.dwt', $cache_id);
     }

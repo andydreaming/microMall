@@ -88,6 +88,18 @@ class UserController extends CommonController {
             }    
         }
         $this->assign('isbind', $bind);
+        
+        //微信配置信息
+        $wxinfo   = model('Base')->model->table('wechat')->field('token, appid, appsecret')->find();
+        $appid    = $wxinfo['appid'];
+        $secret   = $wxinfo['appsecret'];
+        //微信JS SDK
+        $jssdk = new Jssdk($appid, $secret);
+        $signPackage = $jssdk->GetSignPackage();
+        $this->assign('appid', $signPackage["appId"]);
+        $this->assign('timestamp', $signPackage["timestamp"]);
+        $this->assign('noncestr', $signPackage["nonceStr"]);
+        $this->assign('signature', $signPackage["signature"]);
 
 		$arr=array(
 		'msg_list'=> $msg_list,
@@ -1390,6 +1402,11 @@ class UserController extends CommonController {
                 ECTouch::err()->show(L('back_up_page'), url('bonus'));
             }
         }
+        
+        //红包余额
+        $sql = "SELECT * FROM " . $this->model->pre. "user_bonus_balance WHERE user_id= " . $this->user_id;
+        $user_balance = $this->model->query($sql);
+        
         // 分页
         $filter['page'] = '{page}';
         $offset = $this->pageLimit(url('bonus', $filter), 5);
@@ -1397,6 +1414,10 @@ class UserController extends CommonController {
         $count = $this->model->table('user_bonus')->where('user_id = ' . $this->user_id)->count();
         $bonus = model('Users')->get_user_bouns_list($this->user_id, $offset_page[1], $offset_page[0]);
 
+        $this->assign('balance', $user_balance['balance']);
+        $this->assign('expire_date', $user_balance['expire_date']);
+//         $this->assign('balance', 500.00);
+//         $this->assign('expire_date', '2015-08-25');
         $this->assign('title', L('label_bonus'));
         $this->assign('pager', $this->pageShow($count));
         $this->assign('bonus', $bonus);

@@ -106,37 +106,43 @@
 		}
 	}
 	function scan(){
-	var html = '<div id="scanHome" class="utils-modal">' +
-                        '<div class="utils-modal-mask"><div class="utils-modal-con">';
-                        html += '<div class="utils-modal-body"><div class="utils-modal-tips">请输入卡密：</div><div class="utils-modal-input"><input type="text" id="scanHomeInput"></div></div>';
-                        html += '<div class="utils-modal-footer"><div class="cancel">取消</div><div class="confirm">确认</div></div>';
-                    html += '</div></div></div>';
-                    var modal=$('#scanHome');
-                    if(modal.length>0){
-                    	modal.show();
-                    }else{
-                    	$('body').append(html);   
-       					//$('#scanHome .utils-modal-mask').on('click',function(){
-       					//	$('#scanHome').hide();
-       					//}); 
-       					$('#scanHome .cancel').on('click',function(){
-       						$('#scanHome').hide();
-       					});
-       					$('#scanHome .confirm').on('click',function(){
-       						var scanHomeInput=$('#scanHomeInput').val();
-       						if(scanHomeInput){
-       						alert(scanHomeInput)
-       						}
-       					});         
-                    }
 		wx.scanQRCode({
-    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
-    success: function (res) {
-    var result = res.resultStr;
-    alert(result);
-    //TODO
-}
-});
+    		needResult: 1, 
+    		scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+    		success: function (res) {
+    			alert(JSON.stringify(res))
+    			var result = res.resultStr;
+    			alert(result);
+    			var html = '<div id="scanHome" class="utils-modal">' +
+    	        '<div class="utils-modal-mask"><div class="utils-modal-con">';
+    	        html += '<div class="utils-modal-body"><div class="utils-modal-tips">请输入卡密：</div><div class="utils-modal-input"><input type="text" id="scanHomeInput"></div></div>';
+    	        html += '<div class="utils-modal-footer"><div class="cancel">取消</div><div class="confirm">确认</div></div>';
+	    	    html += '</div></div></div>';
+	    	    var modal=$('#scanHome');
+	    	    if(modal.length>0){
+	    	    	modal.show();
+	    	    }else{
+	    	    	$('body').append(html);   
+	    				//$('#scanHome .utils-modal-mask').on('click',function(){
+	    				//	$('#scanHome').hide();
+	    				//}); 
+	    				$('#scanHome .cancel').on('click',function(){
+	    					$('#scanHome').hide();
+	    				});
+	    				$('#scanHome .confirm').on('click',function(){
+	    					var scanHomeInput=$('#scanHomeInput').val();
+	    					if(scanHomeInput){
+	    					alert(scanHomeInput)
+	    					}
+	    				});         
+	    	   }
+			},
+			fail:function(msg){
+				alert('error'+JSON.stringify(msg))
+			},
+			complete:function(msg){
+				alert('3'+JSON.stringify(msg))
+			}
+		});
 	}
 </script>
